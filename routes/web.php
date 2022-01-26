@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BiodataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/biodata', function () {
-    
+
     $data=[
         'nama'=>'Windi Anandira',
         'lahir'=>'Bandung, 07 Januari 2004',
@@ -31,3 +32,4 @@ Route::get('/biodata', function () {
     ];
     return view('biodata',$data);
 });
+Route::get('/list', [BiodataController::class,'index']);
