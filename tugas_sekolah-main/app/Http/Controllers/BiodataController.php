@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Biodata;
+use Illuminate\Support\Facades\Auth;
 class BiodataController extends Controller
 {
     /**
@@ -13,6 +14,9 @@ class BiodataController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->isadmin !=1){
+            abort(403);
+        }
         $data=[
             'title'=>'List Siswa',
             'siswas'=>Biodata::orderBy('created_at','desc')->get(),
@@ -111,7 +115,7 @@ class BiodataController extends Controller
         $bio->alamat=$request->alamat;
         $bio->telp=$request->telp;
         $bio->email=$request->email;
-         $bio->smp=$request->smp;
+        $bio->smp=$request->smp;
         $bio->sma=$request->sma;
         $bio->universitas=$request->universitas;
         $bio->update();

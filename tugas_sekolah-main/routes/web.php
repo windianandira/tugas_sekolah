@@ -39,3 +39,7 @@ Route::get('/edit/{id}', [BiodataController::class, 'edit'])->name('edit_siswa')
 Route::put('/update/{id}', [BiodataController::class, 'update'])->name('update_siswa');
 Route::get('/bio/{id}', [BiodataController::class, 'show'])->name('show_bio');
 Route::delete('/delete/{id}', [BiodataController::class, 'destroy'])->name('destroy-siswa');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

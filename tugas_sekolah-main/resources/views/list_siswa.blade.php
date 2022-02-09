@@ -59,7 +59,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <table id="table_siswa" class="display">
+                <table class="display" id="table_siswa">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -81,7 +81,6 @@
                         <td>{{ $i }}</td>
                         <td>{{ $siswa->nama }}</td>
                         <td>{{ $siswa->lahir }}, {{ \Carbon\Carbon::parse($siswa->tgl)->format('d/m/y')}}</td>
-
                         <td>{{ $siswa->jk }}</td>
                         <td>{{ $siswa->agama }}</td>
                         <td>{{ $siswa->alamat }}</td>
